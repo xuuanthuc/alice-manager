@@ -6,7 +6,7 @@ repository: https://github.com/DexJoke/alice-manager
 topics:
   - dio
   - interceptor
-  - get x
+  - getx
 
 environment:
   sdk: ^3.0.0
