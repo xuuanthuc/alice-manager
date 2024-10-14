@@ -71,7 +71,7 @@ class DioInterceptor extends InterceptorsWrapper with AliceAdapter {
       } else {
         request
           ..size = utf8.encode(data.toString()).length
-          ..body = data;
+          ..body = json.encode(data);
       }
     }
 
