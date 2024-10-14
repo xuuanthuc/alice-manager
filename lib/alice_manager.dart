@@ -7,8 +7,7 @@ class AliceManager {
   static final instance = AliceManager();
   final OverlayAlice _overlayAlice = OverlayAlice();
   OverlayAlice get overlayAlice => _overlayAlice;
-  final Alice alice =
-      Alice(configuration: AliceConfiguration(showNotification: false));
+  final Alice alice = Alice(configuration: AliceConfiguration());
 
   void init(GlobalKey<NavigatorState> navigationKey) {
     alice.setNavigatorKey(navigationKey);
