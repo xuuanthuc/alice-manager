@@ -10,15 +10,11 @@ import 'package:alice_manager/model/alice_http_error.dart';
 import 'package:alice_manager/model/alice_http_response.dart';
 import 'package:alice_manager/model/alice_log.dart';
 import 'package:alice_manager/ui/common/alice_navigation.dart';
-import 'package:alice_manager/utils/shake_detector.dart';
 import 'package:flutter/material.dart';
 
 class AliceCore {
   /// Configuration of Alice
   late AliceConfiguration _configuration;
-
-  /// Detector used to detect device shakes
-  ShakeDetector? _shakeDetector;
 
   /// Helper used for notification management
 
@@ -31,14 +27,6 @@ class AliceCore {
   /// Creates alice core instance
   AliceCore({required AliceConfiguration configuration}) {
     _configuration = configuration;
-    if (_configuration.showInspectorOnShake) {
-      if (OperatingSystem.isAndroid || OperatingSystem.isMacOS) {
-        _shakeDetector = ShakeDetector.autoStart(
-          onPhoneShake: navigateToCallListScreen,
-          shakeThresholdGravity: 4,
-        );
-      }
-    }
   }
 
   /// Returns current configuration
@@ -51,7 +39,6 @@ class AliceCore {
 
   /// Dispose subjects and subscriptions
   void dispose() {
-    _shakeDetector?.stopListening();
     _unsubscribeFromCallChanges();
   }
 
