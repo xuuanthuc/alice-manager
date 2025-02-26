@@ -32,7 +32,7 @@ class AliceConfiguration with EquatableMixin {
   final AliceLogger aliceLogger;
 
   AliceConfiguration({
-    this.showInspectorOnShake = true,
+    this.showInspectorOnShake = false,
     this.directionality,
     this.showShareButton = true,
     GlobalKey<NavigatorState>? navigatorKey,
